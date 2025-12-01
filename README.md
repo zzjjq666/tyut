@@ -54,7 +54,7 @@ aigc_fake_detect/
 ├── validate.py                # 验证脚本
 ├── requirements.txt           # 环境依赖文件
 └── README.md
-
+```
 ## 📥 数据下载与划分
 数据集下载
 本算法使用论文《Towards Universal Fake Image Detectors that Generalize Across Generative Models》官方提供的训练数据集。
