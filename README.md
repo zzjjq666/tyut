@@ -86,13 +86,16 @@ GPU: NVIDIA GeForce RTX 4090 (或同等算力显卡)
 
 软件环境
 # 创建conda环境
+```text
 conda create -n deepfake_detect python=3.8
 conda activate deepfake_detect
+```
 
 # 安装PyTorch (CUDA 12.0)
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
 # 安装项目依赖
+```text
 absl-py==2.3.1
 addict==2.4.0
 basicsr==1.4.2
@@ -168,17 +171,19 @@ wcwidth==0.2.14
 werkzeug==3.0.6
 yapf==0.43.0
 zipp==3.20.2
+```
 🚀 模型训练与测试
+```text
 模型训练
-bash
 python train.py \
     --name=clip_vitl14 \
     --wang2020_data_path=datasets/ \
     --data_mode=wang2020 \
     --arch=CLIP:ViT-L/14 \
     --fix_backbone
+```
 关键参数说明:
-
+```text
 --name: 实验名称，用于创建保存目录
 
 --wang2020_data_path: 数据集路径
@@ -186,13 +191,14 @@ python train.py \
 --arch: 模型架构，使用CLIP ViT-L/14
 
 --fix_backbone: 冻结主干网络参数
-
+```
 模型验证
-bash
+```text
 python validate.py \
     --arch=CLIP:ViT-L/14 \
     --ckpt=checkpoints/clip_vitl14/model_epoch_best.pth \
     --result_folder=your_result_folder
+```
 参数说明:
 
 --ckpt: 训练好的模型检查点路径
@@ -209,9 +215,11 @@ python validate.py \
 🔄 复现流程
 完整复现步骤：
 环境准备
+```text
 conda create -n deepfake_detect python=3.8
 conda activate deepfake_detect
 pip install -r requirements.txt
+```
 数据准备：
 下载数据集到datasets目录
 # 确保目录结构正确
@@ -226,34 +234,27 @@ python validate.py --arch=CLIP:ViT-L/14 --ckpt=checkpoints/clip_vitl14/model_epo
 python validate.py --ckpt=pretrained_models/best_model.pth --data_dir=datasets/test
 
 ⚙️ 环境配置
+```text
 实验要求：
 GPU型号	NVIDIA GeForce RTX 4090
 显存	24 GB
 CUDA Version	≥ 12.0
 GPU驱动版本	NVIDIA 575.57.08
+```
 依赖安装
 # 创建conda环境
+```text
 conda create -n deepfake_detect python=3.8
 conda activate deepfake_detect
-
+```
 # 安装PyTorch (CUDA 12.0)
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
 # 安装项目依赖
+```text
 pip install -r requirements.txt
-requirements.txt 内容
-text
-tqdm>=4.64.0
-numpy>=1.21.0
-opencv-python>=4.5.0
-Pillow>=8.3.0
-scikit-learn>=1.0.0
-tensorboard>=2.7.0
-albumentations>=1.0.0
-einops>=0.4.0
-timm>=0.5.0
-omegaconf>=2.1.0
-
+requirements.txt 具体内容见前面
+```
 🚀 模型训练与测试
 性能指标
 完整训练时长: 约48小时（在RTX 4090上）
