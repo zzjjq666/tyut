@@ -68,11 +68,12 @@ CIFAKE: Real and AI-Generated Synthetic Images：
 https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images
 
 我们对于数据划分说明：
-text
+```text
 datasets/
 ├── train/     # 训练集 - 用于模型训练
 ├── val/       # 验证集 - 用于超参数调优
 └── test/      # 测试集 - 用于最终性能评估
+```
 划分比例: 训练集80%，验证集20%，测试集20%
 
 ⚙️ 环境配置
@@ -92,19 +93,81 @@ conda activate deepfake_detect
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
 # 安装项目依赖
-pip install -r requirements.txt
-requirements.txt
-text
-tqdm>=4.64.0
-numpy>=1.21.0
-opencv-python>=4.5.0
-Pillow>=8.3.0
-scikit-learn>=1.0.0
-tensorboard>=2.7.0
-albumentations>=1.0.0
-einops>=0.4.0
-timm>=0.5.0
-omegaconf>=2.1.0
+absl-py==2.3.1
+addict==2.4.0
+basicsr==1.4.2
+cachetools==5.5.2
+certifi==2025.10.5
+charset-normalizer==3.4.4
+clip-anytorch==2.6.0
+cmake==4.1.2
+filelock==3.16.1
+fsspec==2025.3.0
+ftfy==6.2.3
+future==1.0.0
+google-auth==2.43.0
+google-auth-oauthlib==1.0.0
+grpcio==1.70.0
+idna==3.11
+imageio==2.35.1
+importlib-metadata==8.5.0
+jinja2==3.1.6
+joblib==1.4.2
+lazy-loader==0.4
+lit==18.1.8
+lmdb==1.7.5
+markdown==3.7
+markupsafe==2.1.5
+mpmath==1.3.0
+networkx==3.1
+numpy==1.24.4
+nvidia-cublas-cu12==12.1.3.1
+nvidia-cuda-cupti-cu12==12.1.105
+nvidia-cuda-nvrtc-cu12==12.1.105
+nvidia-cuda-runtime-cu12==12.1.105
+nvidia-cudnn-cu12==9.1.0.70
+nvidia-cufft-cu12==11.0.2.54
+nvidia-curand-cu12==10.3.2.106
+nvidia-cusolver-cu12==11.4.5.107
+nvidia-cusparse-cu12==12.1.0.106
+nvidia-nccl-cu12==2.20.5
+nvidia-nvjitlink-cu12==12.9.86
+nvidia-nvtx-cu12==12.1.105
+oauthlib==3.3.1
+opencv-python==4.12.0.88
+packaging==25.0
+pillow==10.4.0
+platformdirs==4.3.6
+protobuf==5.29.5
+pyasn1==0.6.1
+pyasn1-modules==0.4.2
+pywavelets==1.4.1
+pyyaml==6.0.3
+regex==2024.11.6
+requests==2.32.4
+requests-oauthlib==2.0.0
+rsa==4.9.1
+scikit-image==0.21.0
+scikit-learn==1.3.2
+scipy==1.10.1
+sympy==1.13.3
+tb-nightly==2.14.0a20230808
+tensorboard-data-server==0.7.2
+tensorboardx==2.6.2.2
+threadpoolctl==3.5.0
+tifffile==2023.7.10
+tomli==2.3.0
+torch==2.0.0+cu118
+torchaudio==2.4.1+cu118
+torchvision==0.15.1+cu118
+tqdm==4.67.1
+triton==2.0.0
+typing-extensions==4.13.2
+urllib3==2.2.3
+wcwidth==0.2.14
+werkzeug==3.0.6
+yapf==0.43.0
+zipp==3.20.2
 🚀 模型训练与测试
 模型训练
 bash
@@ -195,7 +258,4 @@ omegaconf>=2.1.0
 性能指标
 完整训练时长: 约48小时（在RTX 4090上）
 
-单次推理耗时: 约15ms/图像
-
-峰值显存占用: 18GB
 
