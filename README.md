@@ -41,7 +41,6 @@ aigc_fake_detect/
 │   ├── resnet.py              # ResNet架构
 │   ├── vgg.py                 # VGG架构
 │   ├── vision_transformer.py  # Vision Transformer架构
-│   └── ...
 ├── networks/                   # 网络组件和训练逻辑
 │   ├── __init__.py
 │   ├── base_model.py          # 基础模型类
@@ -58,20 +57,23 @@ aigc_fake_detect/
 ## 📥 数据下载与划分
 数据集下载
 本算法使用论文《Towards Universal Fake Image Detectors that Generalize Across Generative Models》官方提供的训练数据集。
+基线数据集下载地址：https://github.com/peterwang512/CNNDetection
+基线数据集大小: 约72GB
 
-数据集大小: 约72GB
+除了基线数据集以外，我们还提供了更为丰富的数据集。为了方便大家提升模型的性能，我们也将这些数据集整理了出来，方便大家进行下载训练。
+AI Generated Images vs Real Images：
+https://www.kaggle.com/datasets/cashbowman/ai-generated-images-vs-real-images
 
-下载方式: 从论文官方链接下载
+CIFAKE: Real and AI-Generated Synthetic Images：
+https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images
 
-数据格式: 图像文件 + 标注信息
-
-数据划分说明
+我们对于数据划分说明：
 text
 datasets/
 ├── train/     # 训练集 - 用于模型训练
 ├── val/       # 验证集 - 用于超参数调优
 └── test/      # 测试集 - 用于最终性能评估
-划分比例: 训练集70%，验证集15%，测试集15%
+划分比例: 训练集80%，验证集20%，测试集20%
 
 ⚙️ 环境配置
 硬件要求
@@ -82,7 +84,6 @@ GPU: NVIDIA GeForce RTX 4090 (或同等算力显卡)
 内存: ≥ 32GB
 
 软件环境
-bash
 # 创建conda环境
 conda create -n deepfake_detect python=3.8
 conda activate deepfake_detect
@@ -143,39 +144,31 @@ python validate.py \
 峰值显存: 18GB
 
 🔄 复现流程
-完整复现步骤
+完整复现步骤：
 环境准备
-
-bash
 conda create -n deepfake_detect python=3.8
 conda activate deepfake_detect
 pip install -r requirements.txt
-数据准备
-
-bash
-# 下载数据集到datasets目录
+数据准备：
+下载数据集到datasets目录
 # 确保目录结构正确
-模型训练
-
-bash
+模型训练：
 python train.py --name=clip_vitl14 --wang2020_data_path=datasets/ --data_mode=wang2020 --arch=CLIP:ViT-L/14 --fix_backbone
-模型测试
 
-bash
+模型测试：
 python validate.py --arch=CLIP:ViT-L/14 --ckpt=checkpoints/clip_vitl14/model_epoch_best.pth --result_folder=your_result_folder
-快速验证
-bash
+
+我们还提供快速验证的方法：
 # 使用预训练模型快速测试
 python validate.py --ckpt=pretrained_models/best_model.pth --data_dir=datasets/test
+
 ⚙️ 环境配置
-实验配置
-配置项	规格
+实验要求：
 GPU型号	NVIDIA GeForce RTX 4090
 显存	24 GB
 CUDA Version	≥ 12.0
 GPU驱动版本	NVIDIA 575.57.08
 依赖安装
-bash
 # 创建conda环境
 conda create -n deepfake_detect python=3.8
 conda activate deepfake_detect
@@ -197,21 +190,8 @@ albumentations>=1.0.0
 einops>=0.4.0
 timm>=0.5.0
 omegaconf>=2.1.0
+
 🚀 模型训练与测试
-模型训练
-bash
-python train.py \
-    --name=clip_vitl14 \
-    --wang2020_data_path=datasets/ \
-    --data_mode=wang2020 \
-    --arch=CLIP:ViT-L/14 \
-    --fix_backbone
-模型验证
-bash
-python validate.py \
-    --arch=CLIP:ViT-L/14 \
-    --ckpt=checkpoints/clip_vitl14/model_epoch_best.pth \
-    --result_folder=your_result_folder
 性能指标
 完整训练时长: 约48小时（在RTX 4090上）
 
