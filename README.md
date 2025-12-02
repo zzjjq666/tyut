@@ -5,7 +5,7 @@
 
 ## 项目简介
 本项目针对AIGC伪造图像检测任务，提出了一种基于CLIP:ViT-L/14的端到端检测算法。通过SRFormer图像增强、监督对比学习和SAM优化器等关键技术，显著提升了模型对微小伪造特征的识别能力和泛化性能。
-<img width="1935" height="548" alt="ad7b2830cd61b23533f8eafb0f1df60a" src="https://github.com/user-attachments/assets/4dca7501-3ee0-4a59-a5bc-5e8417bacfda" />
+<img width="2074" height="509" alt="cb26282ea7fff3d4007ced3588e2b635" src="https://github.com/user-attachments/assets/dda684b1-11c6-4ff6-8e49-79ac5d5c22f3" />
 
 ---
 
