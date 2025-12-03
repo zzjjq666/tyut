@@ -26,32 +26,31 @@
 
 ```text
 aigc_fake_detect/
-├── checkpoints/                 # 模型检查点保存目录
-│   └── clip_vitl14/            # CLIP ViT-L/14训练结果
-├── data/                       # 原始数据目录
-├── datasets/                   # 处理后的数据集目录
-│   ├── test/                  # 测试集数据
-│   ├── train/                 # 训练集数据  
-│   └── val/                   # 验证集数据
-├── models/                     # 模型架构定义
-│   ├── clip/                  # CLIP模型相关
+├── checkpoints/                 
+│   └── clip_vitl14/           
+├── data/                       
+├── datasets/                  
+│   ├── test/                 
+│   ├── train/                 
+│   └── val/                  
+├── models/                    
+│   ├── clip/                 
 │   ├── __init__.py
-│   ├── clip_models.py         # CLIP模型实现
-│   ├── imagenet_models.py     # ImageNet预训练模型
-│   ├── resnet.py              # ResNet架构
-│   ├── vgg.py                 # VGG架构
-│   ├── vision_transformer.py  # Vision Transformer架构
-├── networks/                   # 网络组件和训练逻辑
+│   ├── clip_models.py         
+│   ├── imagenet_models.py    
+│   ├── resnet.py             
+│   ├── vgg.py                 
+│   ├── vision_transformer.py 
+├── networks/                   
 │   ├── __init__.py
-│   ├── base_model.py          # 基础模型类
-│   ├── contrastive_loss.py    # 对比损失函数
-│   ├── sam.py                 # SAM模型集成
-│   └── trainer.py             # 训练器类
-├── options/                    # 配置文件目录
-├── your_result_folder/        # 结果保存目录
-├── train.py                   # 训练脚本
-├── validate.py                # 验证脚本
-├── requirements.txt           # 环境依赖文件
+│   ├── base_model.py          
+│   ├── sam.py                 
+│   └── trainer.py          
+├── options/                   
+├── your_result_folder/       
+├── train.py                  
+├── validate.py               
+├── requirements.txt          
 └── README.md
 ```
 ## 📥 数据下载与划分
@@ -63,9 +62,6 @@ aigc_fake_detect/
 除了基线数据集以外，我们还提供了更为丰富的数据集。为了方便大家提升模型的性能，我们也将这些数据集整理了出来，方便大家进行下载训练。
 AI Generated Images vs Real Images：
 https://www.kaggle.com/datasets/cashbowman/ai-generated-images-vs-real-images
-
-CIFAKE: Real and AI-Generated Synthetic Images：
-https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images
 
 我们对于数据划分说明：
 ```text
@@ -96,14 +92,6 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 # 安装项目依赖
 ```text
-absl-py==2.3.1
-addict==2.4.0
-basicsr==1.4.2
-cachetools==5.5.2
-certifi==2025.10.5
-charset-normalizer==3.4.4
-clip-anytorch==2.6.0
-cmake==4.1.2
 filelock==3.16.1
 fsspec==2025.3.0
 ftfy==6.2.3
@@ -161,16 +149,6 @@ threadpoolctl==3.5.0
 tifffile==2023.7.10
 tomli==2.3.0
 torch==2.0.0+cu118
-torchaudio==2.4.1+cu118
-torchvision==0.15.1+cu118
-tqdm==4.67.1
-triton==2.0.0
-typing-extensions==4.13.2
-urllib3==2.2.3
-wcwidth==0.2.14
-werkzeug==3.0.6
-yapf==0.43.0
-zipp==3.20.2
 ```
 🚀 模型训练与测试
 ```text
